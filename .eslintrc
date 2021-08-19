@@ -1,16 +1,12 @@
 {
   "extends": [
     "prettier",
-    "prettier/@typescript-eslint",
-    "prettier/react",
-    "prettier/standard",
     "eslint:recommended",
     "plugin:react/recommended",
-    "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:react-hooks/recommended"
   ],
   "parserOptions": {
-    "ecmaVersion": 7,
+    "ecmaVersion": 7, //指定ECMAScript支持的版本
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
@@ -27,8 +23,8 @@
   ],
   "rules": {
     "semi": 0,
-    "react-hooks/rules-of-hooks": "error",
-    "react-hooks/exhaustive-deps": "warn",
+    "react-hooks/rules-of-hooks": 0,
+    "react-hooks/exhaustive-deps": 0,
     "class-methods-use-this": 0,
     "import/no-named-as-default": 0,
     "import/no-extraneous-dependencies": 0,
