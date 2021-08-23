@@ -1,6 +1,6 @@
 import React from 'react'
 import { Switch, Route } from "react-router-dom";
-import { Loadable } from "@kits"
+import { Loadable } from "@kits";
 
 const Home = Loadable(() => import('@pages/home'))
 

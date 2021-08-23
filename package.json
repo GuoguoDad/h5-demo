@@ -118,11 +118,11 @@
   },
   "lint-staged": {
     "src/**/*.{jsx,txs,ts,js,json}": [
-      "npx prettier --write --loglevel warn",
-      "npx eslint --fix --format ./node_modules/eslint-friendly-formatter --cache"
+      "prettier --write",
+      "eslint --fix"
     ],
     "src/**/*.{css,less}": [
-      "npx stylelint --custom-syntax ./node_modules/postcss-less --fix"
+      "stylelint --custom-syntax ./node_modules/postcss-less --fix"
     ]
   }
 }
