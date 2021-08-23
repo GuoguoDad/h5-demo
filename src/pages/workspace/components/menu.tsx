@@ -1,8 +1,8 @@
 import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
-import { useDispatch, useSelector } from 'react-redux'
-import { RootState, AppDispatch } from '@store'
-import { useHistory } from 'react-router'
+import { useDispatch, useSelector } from "react-redux";
+import { RootState, AppDispatch } from '@store';
+import { useHistory } from 'react-router';
 import { bachSetState } from '../slice'
 
 const { SubMenu } = Menu
