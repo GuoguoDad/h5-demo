@@ -113,7 +113,16 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run prettier && npm run eslint && npm run stylelint"
+      "pre-commit": "lint-staged"
     }
+  },
+  "lint-staged": {
+    "src/**/*.{jsx,txs,ts,js,json}": [
+      "npx prettier --write --loglevel warn",
+      "npx eslint --fix --format ./node_modules/eslint-friendly-formatter --cache"
+    ],
+    "src/**/*.{css,less}": [
+      "npx stylelint --custom-syntax ./node_modules/postcss-less --fix"
+    ]
   }
 }

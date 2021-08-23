@@ -4,7 +4,7 @@ import { Loadable } from '@kits'
 
 const Home = Loadable(() => import('@pages/home'))
 
-const App = () => {
+const Routes = () => {
   return (
     <Switch>
       <Route path="/home" component={Home} />
@@ -12,4 +12,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Routes

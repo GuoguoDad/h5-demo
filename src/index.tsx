@@ -6,7 +6,7 @@ import { createHashHistory } from 'history'
 import { Provider } from 'react-redux'
 import './assets/style/index.less'
 import { store } from './store'
-import App from './app'
+import Routes from './routes'
 
 import Decorator from '@pages/workspace'
 
@@ -16,9 +16,9 @@ ReactDOM.render(
   <Provider store={store}>
     <Router history={history}>
       <Decorator>
-        <App />
+        <Routes />
       </Decorator>
     </Router>
   </Provider>,
-  document.getElementById('root'),
+  document.getElementById('root')
 )
