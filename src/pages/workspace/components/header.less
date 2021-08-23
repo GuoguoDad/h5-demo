@@ -3,7 +3,7 @@
 .notice-header {
   padding: 0 12px 0 0;
   background: #fff;
-  box-shadow: 0 1px 4px rgba(0, 21, 41, .08);
+  box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 
 :global {
@@ -16,17 +16,19 @@
   :global(.anticon) {
     margin-right: 8px;
   }
+
   :global(.ant-dropdown-menu-item) {
     width: 160px;
   }
 }
 
 i.trigger {
+  padding: 0 24px;
   font-size: 20px;
   line-height: 64px;
   cursor: pointer;
-  transition: all .3s;
-  padding: 0 24px;
+  transition: all 0.3s;
+
   &:hover {
     color: #1890ff;
     background: @primary-1;
@@ -44,40 +46,46 @@ i.trigger {
   height: 100%;
 
   .notice-action {
-    cursor: pointer;
+    display: inline-block;
     padding: 20px 12px;
-    display: inline-block;
-    transition: all .3s;
-    > i {
-      font-size: 12px;
-      vertical-align: middle;
-    }
-    &:global(.ant-popover-open),
-    &:hover {
-      background: @primary-1;
-    }
-  }
-  .action {
     cursor: pointer;
-    padding: 0 12px;
-    display: inline-block;
-    transition: all .3s;
-    height: 100%;
+    transition: all 0.3s;
+
     > i {
       font-size: 12px;
       vertical-align: middle;
     }
+
     &:global(.ant-popover-open),
     &:hover {
       background: @primary-1;
     }
   }
+
+  .action {
+    display: inline-block;
+    height: 100%;
+    padding: 0 12px;
+    cursor: pointer;
+    transition: all 0.3s;
+
+    > i {
+      font-size: 12px;
+      vertical-align: middle;
+    }
+
+    &:global(.ant-popover-open),
+    &:hover {
+      background: @primary-1;
+    }
+  }
+
   .account {
     .avatar {
       margin: 20px 1px 25px 0;
       color: @primary-color;
-      background: rgba(255, 255, 255, .85);
       vertical-align: middle;
+      background: rgba(255, 255, 255, 0.85);
     }
   }
 }

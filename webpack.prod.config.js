@@ -1,9 +1,9 @@
 const { merge } = require('webpack-merge')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const { WebpackManifestPlugin } = require('webpack-manifest-plugin')
 const TerserPlugin = require('terser-webpack-plugin')
-const OptimizeCSSAssetsPlugin = require('optimize-css-assets-webpack-plugin')
+const CssMinimizerPlugin = require('css-minimizer-webpack-plugin')
+const HtmlMinimizerPlugin = require('html-minimizer-webpack-plugin')
 const baseWebpackConfig = require('./webpack.base.config')
 
 module.exports = merge(baseWebpackConfig, {
@@ -13,16 +13,6 @@ module.exports = merge(baseWebpackConfig, {
   },
   devtool: false,
   plugins: [
-    new HtmlWebpackPlugin({
-      title: 'fe-app',
-      filename: 'index.html',
-      template: './public/index.ejs',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      }
-    }),
     // new BundleAnalyzerPlugin(),
   ],
   optimization: {
@@ -55,11 +45,17 @@ module.exports = merge(baseWebpackConfig, {
           }
         }
       }),
-      new OptimizeCSSAssetsPlugin({
-        cssProcessorOptions: {
-          discardComments: { removeAll: true }
-        }
-      }),
+      new CssMinimizerPlugin({
+        minimizerOptions: {
+          preset: [
+            'default',
+            {
+              discardComments: { removeAll: true },
+            },
+          ],
+        }}
+      ),
+      new HtmlMinimizerPlugin({ parallel: true }),
       new WebpackManifestPlugin({
         publicPath: './'
       })

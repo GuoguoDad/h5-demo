@@ -5,7 +5,7 @@ const initialState: WorkSpaceState = {
   menuName: '用户管理',
   subMenuKey: 'user',
   menuKey: 'userlist',
-  collapsed: false,
+  collapsed: false
 }
 
 export const WorkSpaceSlice = createSlice({
@@ -14,9 +14,9 @@ export const WorkSpaceSlice = createSlice({
   reducers: {
     bachSetState: (state: WorkSpaceState, action: PayloadAction<{ [key: string]: unknown }>) => {
       const valObj = action.payload
-      Object.keys(valObj).forEach((key) => (state[key] = valObj[key]))
-    },
-  },
+      Object.keys(valObj).forEach(key => (state[key] = valObj[key]))
+    }
+  }
 })
 
 export const { bachSetState } = WorkSpaceSlice.actions

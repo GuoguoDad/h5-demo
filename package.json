@@ -7,9 +7,7 @@
     "dev": "cross-env NODE_ENV=development && webpack serve --config webpack.dev.config.js",
     "build": "rimraf ./dist/* && cross-env NODE_ENV=production && webpack --config webpack.prod.config.js",
     "eslint": "npx eslint --ext .ts,.tsx,.js,.jsx,.json src --fix --format ./node_modules/eslint-friendly-formatter --cache",
-    "prettier": "npx prettier --write \"src/**/*.{js,jsx,ts,tsx,json}\" --loglevel warn",
-    "stylelint": "npx stylelint ./src/**/**/*.less --custom-syntax ./node_modules/postcss-less --fix",
-    "format": "npm run prettier && npm run eslint && npm run stylelint"
+    "stylelint": "npx stylelint ./src/**/**/*.less --custom-syntax ./node_modules/postcss-less --fix"
   },
   "dependencies": {
     "@manaflair/redux-batch": "^1.0.0",
@@ -69,6 +67,7 @@
     "copy-webpack-plugin": "^9.0.1",
     "cross-env": "^7.0.3",
     "css-loader": "^6.2.0",
+    "css-minimizer-webpack-plugin": "^3.0.2",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-standard": "^16.0.3",
@@ -82,22 +81,22 @@
     "eslint-webpack-plugin": "^3.0.1",
     "file-loader": "^6.2.0",
     "html-loader": "^2.1.2",
+    "html-minimizer-webpack-plugin": "^3.1.1",
     "html-webpack-plugin": "^5.3.2",
-    "husky": "^7.0.1",
     "less": "^4.1.1",
     "less-loader": "^10.0.1",
     "lint-staged": "^11.1.2",
     "mini-css-extract-plugin": "^2.2.0",
-    "optimize-css-assets-webpack-plugin": "^6.0.1",
     "postcss": "^8.3.6",
     "postcss-less": "^5.0.0",
-    "prettier": "^2.3.2",
-    "pretty-quick": "^3.1.1",
     "progress-bar-webpack-plugin": "^2.1.0",
     "style-loader": "^3.2.1",
     "stylelint": "^13.13.1",
+    "stylelint-config-css-modules": "^2.2.0",
+    "stylelint-config-recess-order": "^2.5.0",
     "stylelint-config-standard": "^22.0.0",
     "stylelint-order": "^4.1.0",
+    "stylelint-webpack-plugin": "^3.0.1",
     "terser-webpack-plugin": "^5.1.4",
     "ts-loader": "^9.2.5",
     "typescript": "^4.3.5",
@@ -111,10 +110,5 @@
   },
   "eslintConfig": {
     "extends": "react-app"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "npm run format"
-    }
   }
 }

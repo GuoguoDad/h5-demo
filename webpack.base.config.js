@@ -1,8 +1,13 @@
 const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
+const ESLintWebpackPlugin = require('eslint-webpack-plugin')
+const StylelintPlugin = require('stylelint-webpack-plugin')
 const utils = require('./utils')
+
+const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
   output: {
@@ -30,15 +35,19 @@ module.exports = {
         exclude: /node_modules/,
         use: [{ loader: 'babel-loader', options: { cacheDirectory: true } }]
       },
-      { test: /\.css$/, use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }] },
+      { test: /\.css$/, use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader', options: { sourceMap: true }}] },
       {
         test: /\.less$/,
-        use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }, { loader: 'less-loader', options: {
-            lessOptions: {
+        use: [
+          { loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader },
+          { loader: 'css-loader', options: { sourceMap: true }},
+          { loader: 'less-loader', options: {
+              sourceMap: true,
+              lessOptions: {
               javascriptEnabled: true
             }
-          }
-        }]
+          }}
+        ]
       },
       { test: /\.html$/, use: { loader: 'html-loader' } },
       {
@@ -64,6 +73,28 @@ module.exports = {
     },
   },
   plugins: [
+    new ESLintWebpackPlugin({
+      context: utils.appPath,
+      cache: false,
+      emitWarning: true,
+      emitError: true,
+      files: ['src', 'config'],
+      formatter: require.resolve('eslint-friendly-formatter'),
+      eslintPath: require.resolve('eslint'),
+      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
+      ignore: true,
+      fix: true
+    }),
+    new StylelintPlugin({
+      context: utils.appPath,
+      emitWarning: true,
+      emitError: true,
+      files: ['src/**/*.css', 'src/**/*.less'],
+      stylelintPath: require.resolve('stylelint'),
+      ignore: true,
+      fix: true,
+      useEslintrc: true
+    }),
     // new CopyWebpackPlugin({
     //   patterns: [
     //     {
@@ -75,6 +106,16 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: utils.assetsPath('css/[name]-[contenthash:5].css'),
       chunkFilename: utils.assetsPath('css/[name]-[contenthash:5].css')
+    }),
+    new HtmlWebpackPlugin({
+      title: 'fe-app',
+      filename: 'index.html',
+      template: './public/index.ejs',
+      minify: {
+        removeComments: devMode ? false : true,
+        collapseWhitespace: devMode ? false : true,
+        removeAttributeQuotes: devMode ? false : true
+      }
     }),
     new ProgressBarPlugin({
       format: 'Build [:bar] :percent (:elapsed seconds)',

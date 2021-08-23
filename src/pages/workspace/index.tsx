@@ -1,8 +1,8 @@
 import React, { PropsWithChildren } from 'react'
 import { useHistory } from 'react-router'
 import { Layout } from 'antd'
-import LeftMenu from "./components/menu";
-import Header from "./components/header";
+import LeftMenu from './components/menu'
+import Header from './components/header'
 
 const { Content } = Layout
 
