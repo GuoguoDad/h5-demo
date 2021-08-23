@@ -5,14 +5,14 @@
     "plugin:react/recommended",
     "plugin:react-hooks/recommended"
   ],
+  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaVersion": 7, //指定ECMAScript支持的版本
+    "ecmaVersion": 2018, //指定ECMAScript支持的版本
     "sourceType": "module",
     "ecmaFeatures": {
       "jsx": true
     }
   },
-  "parser": "@typescript-eslint/parser",
   "env": {
     "browser": true,
     "node": true
@@ -60,5 +60,10 @@
     "global-require": 0,
     "import/no-dynamic-require": 0,
     "@typescript-eslint/no-var-requires": 0
+  },
+  "settings": {
+    "react": {
+      "version": "detect" //, // React version. "detect" automatically picks the version you have installed.
+    }
   }
 }
