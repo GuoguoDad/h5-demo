@@ -13,12 +13,12 @@ import Decorator from '@pages/workspace'
 const history = createHashHistory()
 
 ReactDOM.render(
-  <Provider store={store}>
-    <Router history={history}>
-      <Decorator>
-        <Routes />
-      </Decorator>
-    </Router>
-  </Provider>,
+    <Provider store={store}>
+      <Router history={history}>
+        <Decorator>
+          <Routes />
+        </Decorator>
+      </Router>
+    </Provider>,
   document.getElementById('root')
 )
