@@ -20,9 +20,10 @@
     "paths": {
       "@pages/*" : ["src/pages/*"],
       "@comps" : ["src/components"],
-      "@img/*" : ["src/assets/images/*"]
+      "@img/*" : ["src/assets/images/*"],
+      "@kits": ["src/kits"],
+      "@store": ["src/store"]
     },
-    "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
     "experimentalDecorators": true,

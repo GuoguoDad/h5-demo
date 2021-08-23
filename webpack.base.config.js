@@ -33,7 +33,12 @@ module.exports = {
       { test: /\.css$/, use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }] },
       {
         test: /\.less$/,
-        use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }, { loader: 'less-loader' }]
+        use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }, { loader: 'less-loader', options: {
+            lessOptions: {
+              javascriptEnabled: true
+            }
+          }
+        }]
       },
       { test: /\.html$/, use: { loader: 'html-loader' } },
       {
@@ -53,7 +58,9 @@ module.exports = {
     alias: {
       '@pages': path.resolve(__dirname, './src/pages'),
       '@comps': path.resolve(__dirname, './src/components'),
-      '@img': path.resolve(__dirname, './src/assets/images')
+      '@img': path.resolve(__dirname, './src/assets/images'),
+      '@kits': path.resolve(__dirname, './src/kits'),
+      '@store': path.resolve(__dirname, './src/store')
     },
   },
   plugins: [

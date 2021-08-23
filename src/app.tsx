@@ -1,7 +1,8 @@
 import React from 'react'
 import { HashRouter, Switch, Route } from 'react-router-dom'
+import { Loadable } from '@kits'
 
-import Home from '@pages/home'
+const Home = Loadable(() => import('@pages/home'))
 
 const App = () => {
   return (

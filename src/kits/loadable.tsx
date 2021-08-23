@@ -11,6 +11,6 @@ export default (loader: () => Promise<any>, loading = loadingComponent) => {
   return Loadable({
     loader,
     loading,
-    delay: 2000
+    delay: 2000,
   })
 }
