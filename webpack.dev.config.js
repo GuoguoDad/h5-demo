@@ -6,7 +6,7 @@ module.exports = merge(baseWebpackConfig, {
   entry: {
     app: './src/index.tsx'
   },
-  devtool: 'inline-source-map',
+  devtool: 'source-map',
   devServer: {
     port: 8080,
     host: '0.0.0.0',

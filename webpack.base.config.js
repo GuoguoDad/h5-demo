@@ -78,7 +78,7 @@ module.exports = {
       cache: false,
       emitWarning: true,
       emitError: true,
-      files: ['src', 'config'],
+      files: ['src'],
       formatter: require.resolve('eslint-friendly-formatter'),
       eslintPath: require.resolve('eslint'),
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],

@@ -4,8 +4,6 @@
     "stylelint-config-recess-order",
     "stylelint-config-css-modules"
   ],
-  "plugins": [
-  ],
   "rules": {
     "font-family-no-missing-generic-family-keyword": 0
   }
