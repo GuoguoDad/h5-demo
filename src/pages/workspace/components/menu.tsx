@@ -1,8 +1,8 @@
 import React from 'react'
 import { Layout, Menu, Icon } from 'antd'
-import { useDispatch, useSelector } from "react-redux";
-import { RootState, AppDispatch } from '@store';
-import { useHistory } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux'
+import { RootState, AppDispatch } from '@store'
+import { useHistory } from 'react-router'
 import { bachSetState } from '../slice'
 
 const { SubMenu } = Menu
@@ -14,7 +14,7 @@ const LeftMenu = (props: MenuProps) => {
   const { menuKey, subMenuKey, collapsed } = useSelector((state: RootState) => state.workspace)
 
   const changeUrl = (url: string, name: string) => {
-    if(history.location.pathname !== url){
+    if (history.location.pathname !== url) {
       history.push(url)
     }
     dispatch(bachSetState({ memuName: name }))

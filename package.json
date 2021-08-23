@@ -118,8 +118,8 @@
   },
   "lint-staged": {
     "src/**/*.{jsx,txs,ts,js,json}": [
-      "prettier --write",
-      "eslint --fix"
+      "eslint --fix",
+      "prettier --write"
     ],
     "src/**/*.{css,less}": [
       "stylelint --custom-syntax ./node_modules/postcss-less --fix"
