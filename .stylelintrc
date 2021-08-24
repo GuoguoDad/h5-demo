@@ -5,6 +5,6 @@
     "stylelint-config-css-modules"
   ],
   "rules": {
-    "font-family-no-missing-generic-family-keyword": 0
+    "font-family-no-missing-generic-family-keyword": null
   }
 }

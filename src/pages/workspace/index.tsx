@@ -1,20 +1,18 @@
 import React, { PropsWithChildren } from 'react'
-import { useHistory } from 'react-router'
 import { Layout } from 'antd'
-import LeftMenu from './components/menu'
-import Header from './components/header'
-
 const { Content } = Layout
 
-const WorkSpace = (props: WorkSpaceProps) => {
-  const history = useHistory()
+import LeftMenu from './components/menu'
+import Header from './components/header'
+import styles from './index.module.less'
 
+const WorkSpace = (props: WorkSpaceProps) => {
   return (
-    <Layout style={{ height: '100%' }}>
+    <Layout className={styles.container}>
       <LeftMenu />
       <Layout>
         <Header />
-        <Content style={{ background: '#fff', marginLeft: 15, marginRight: 15, height: '100%', overflow: 'auto' }}>
+        <Content className={styles.content}>
           {props.children}
         </Content>
       </Layout>

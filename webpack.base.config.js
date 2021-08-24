@@ -7,8 +7,6 @@ const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const utils = require('./utils')
 
-const devMode = process.env.NODE_ENV !== 'production'
-
 module.exports = {
   output: {
     path: utils.resolve('./dist'),
@@ -35,12 +33,12 @@ module.exports = {
         exclude: /node_modules/,
         use: [{ loader: 'babel-loader', options: { cacheDirectory: true } }]
       },
-      { test: /\.css$/, use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader', options: { sourceMap: true }}] },
+      { test: /\.css$/, use: [{ loader: MiniCssExtractPlugin.loader }, { loader: 'css-loader' }] },
       {
         test: /\.less$/,
         use: [
-          { loader: devMode ? 'style-loader' : MiniCssExtractPlugin.loader },
-          { loader: 'css-loader', options: { sourceMap: true }},
+          { loader: MiniCssExtractPlugin.loader },
+          { loader: 'css-loader' },
           { loader: 'less-loader', options: {
               sourceMap: true,
               lessOptions: {
@@ -112,9 +110,9 @@ module.exports = {
       filename: 'index.html',
       template: './public/index.ejs',
       minify: {
-        removeComments: devMode ? false : true,
-        collapseWhitespace: devMode ? false : true,
-        removeAttributeQuotes: devMode ? false : true
+        removeComments: true,
+        collapseWhitespace: true,
+        removeAttributeQuotes: true
       }
     }),
     new ProgressBarPlugin({
