@@ -1,7 +1,7 @@
 import React from 'react'
 
-const Index = () => {
+const UserList = () => {
   return <div>111112211111</div>
 }
 
-export default Index
+export default UserList

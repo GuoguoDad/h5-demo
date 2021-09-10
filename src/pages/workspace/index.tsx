@@ -1,9 +1,12 @@
-import React, { PropsWithChildren } from 'react'
+import React, {PropsWithChildren} from 'react'
+import { RouteChildrenProps } from 'react-router'
+import { withRouter } from 'react-router-dom'
 import { Layout } from 'antd'
+
 const { Content } = Layout
 
-import LeftMenu from './components/menu'
 import Header from './components/header'
+import LeftMenu from './components/menu'
 import styles from './index.module.less'
 
 const WorkSpace = (props: WorkSpaceProps) => {
@@ -20,6 +23,6 @@ const WorkSpace = (props: WorkSpaceProps) => {
   )
 }
 
-export default WorkSpace
+export default withRouter(WorkSpace)
 
-type WorkSpaceProps = PropsWithChildren<{}>
+type WorkSpaceProps = RouteChildrenProps & PropsWithChildren<{}>

@@ -1,13 +1,18 @@
 import React from 'react'
-import { Switch, Route } from 'react-router-dom'
+import {Switch, Route, Redirect} from 'react-router-dom'
 import { Loadable } from '@kits'
 
-const Home = Loadable(() => import('@pages/home'))
+const UserList = Loadable(() => import('@pages/user/user-list'))
+const ChartLine = Loadable(() => import('@pages/chart/chart-line'))
 
 const Routes = () => {
   return (
     <Switch>
-      <Route path="/home" component={Home} />
+      <Route exact={true} path="/" render={() => (
+        <Redirect to="/user/list" />
+      )} />
+      <Route key={'user-list'} path="/user/list" exact={true} component={UserList} />
+      <Route key={'chart-line'} path="/chart/line" exact={true} component={ChartLine} />
     </Switch>
   )
 }
