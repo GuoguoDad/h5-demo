@@ -7,14 +7,14 @@ import './assets/style/index.less'
 import { store } from './store'
 import Routes from './routes'
 
-import Decorator from '@pages/workspace'
+import Workspace from '@pages/workspace'
 
 ReactDOM.render(
     <Provider store={store}>
       <HashRouter>
-        <Decorator>
+        <Workspace>
           <Routes />
-        </Decorator>
+        </Workspace>
       </HashRouter>
     </Provider>
   ,
