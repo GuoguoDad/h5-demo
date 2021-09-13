@@ -21,6 +21,7 @@ const UserList = () => {
     queryList(state.currentPage)
   },[])
 
+
   return (
     <Layout className={styles.container}>
       <div className={styles.toolbar}>
@@ -29,7 +30,6 @@ const UserList = () => {
         </span>
         <Button
           type="primary"
-          size="default"
           onClick={() => {}}
         >
           新增
@@ -68,9 +68,7 @@ const UserList = () => {
               <span>
                 <a>修改</a>
                 <Divider type="vertical" />
-                 <Popconfirm title={'确认删除吗?'} onConfirm={(event: React.MouseEvent<HTMLElement>)=>{}} okText="确定" cancelText="取消">
-                  <a>删除</a>
-                </Popconfirm>
+                <a>删除</a>
               </span>
             )
           },

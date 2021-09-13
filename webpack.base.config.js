@@ -5,6 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
+const tsImportPluginFactory = require('ts-import-plugin')
 const utils = require('./utils')
 
 module.exports = {
@@ -23,7 +24,17 @@ module.exports = {
           {
             loader: 'ts-loader',
             options: {
-              transpileOnly: true
+              transpileOnly: true,
+              getCustomTransformers: () => ({
+                before: [tsImportPluginFactory({
+                  libraryName: 'antd',
+                  libraryDirectory: 'lib',
+                  style: true
+                })]
+              }),
+              compilerOptions: {
+                module: 'es2015'
+              }
             }
           }
         ]

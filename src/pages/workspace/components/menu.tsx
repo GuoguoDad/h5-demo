@@ -1,5 +1,6 @@
 import React from 'react'
-import { Layout, Menu, Icon } from 'antd'
+import { Layout, Menu } from 'antd'
+import { DesktopOutlined, UserOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
 import { useHistory, useLocation } from 'react-router-dom'
 import { RootState, AppDispatch } from '@store'
@@ -36,9 +37,9 @@ const LeftMenu = () => {
       >
         <SubMenu
           key="user"
+          icon={<UserOutlined />}
           title={
             <span>
-              <Icon type="user" />
               <span>系统管理</span>
             </span>
           }
@@ -49,9 +50,9 @@ const LeftMenu = () => {
         </SubMenu>
         <SubMenu
           key="chart"
+          icon={<DesktopOutlined />}
           title={
             <span>
-              <Icon type="laptop" />
               <span>图表</span>
             </span>
           }

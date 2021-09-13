@@ -1,6 +1,7 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Layout, Icon, Tag, Dropdown, Menu, Avatar } from 'antd'
+import { Layout, Tag, Dropdown, Menu, Avatar } from 'antd'
+import { UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined, } from '@ant-design/icons'
 import NoticeIcon from 'ant-design-pro/lib/NoticeIcon'
 import groupBy from 'lodash/groupBy'
 import dayjs from 'dayjs'
@@ -9,6 +10,7 @@ import { AppDispatch, RootState } from '@store'
 import { bachSetState } from '../slice'
 import { tempData, getColor } from '../util'
 import './header.less'
+
 
 const { Header } = Layout
 
@@ -46,17 +48,14 @@ const WorkSpaceHeader = () => {
 
   const menu = (
     <Menu className="menu" selectedKeys={[]} onClick={() => {}}>
-      <Menu.Item>
-        <Icon type="user" />
+      <Menu.Item icon={<UserOutlined />}>
         个人中心
       </Menu.Item>
-      <Menu.Item>
-        <Icon type="setting" />
+      <Menu.Item icon={<UserOutlined />}>
         设置
       </Menu.Item>
       <Menu.Divider />
-      <Menu.Item key="logout">
-        <Icon type="logout" />
+      <Menu.Item key="logout" icon={<UserOutlined />}>
         退出登录
       </Menu.Item>
     </Menu>
@@ -66,9 +65,12 @@ const WorkSpaceHeader = () => {
 
   return (
     <Header className="notice-header">
-      <Icon className="trigger" type={collapsed ? 'menu-unfold' : 'menu-fold'} onClick={() => {
-        dispatch(bachSetState({ collapsed: collapsed ? false : true }))
-      }} />
+      {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
+        className: 'trigger',
+        onClick: ()=> {
+          dispatch(bachSetState({ collapsed: collapsed ? false : true }))
+        },
+      })}
       <div className="header-right">
         <NoticeIcon
           className="notice-action notice-icon"
