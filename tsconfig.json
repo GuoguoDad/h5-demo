@@ -21,6 +21,7 @@
     "paths": {
       "@pages/*" : ["src/pages/*"],
       "@comps" : ["src/components"],
+      "@http" : ["src/http/fetch"],
       "@img/*" : ["src/assets/images/*"],
       "@kits": ["src/kits"],
       "@store": ["src/store"]

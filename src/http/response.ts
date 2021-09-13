@@ -15,13 +15,11 @@ export interface FailedResponse extends BaseResponse<null> {
 }
 
 export type PageData<T> = {
-  pageNo: number
-
   pageSize: number
 
-  totalPages: number
+  totalPageCount: number
 
-  totalRecords: number
+  totalCount: number
 
-  list: T[]
+  dataList: T[]
 }

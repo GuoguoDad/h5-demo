@@ -1,0 +1,15 @@
+{
+  "code": 0,
+  "msg": "",
+  "data": {
+    "dataList|10" :[
+      {
+        "id": "@id",
+        "name": "@cname",
+        "deptName": "前端开发部"
+      }
+    ],
+    "totalCount": 20,
+    "totalPageCount": 2
+  }
+}

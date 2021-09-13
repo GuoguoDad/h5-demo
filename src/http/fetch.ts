@@ -8,16 +8,12 @@ import { TokenInjectRequestInterceptor } from './interceptors/token-interceptor'
 const instance = axios.create()
 instance.defaults.headers['Content-Type'] = 'application/json'
 instance.defaults.headers.Accept = 'application/json'
-// WARN 使用拦截器当时候 要注意 拦截器先后顺序，会影响返回结果
-// dev 模式下记录 http 日志
+
 if (process.env.NODE_ENV === 'development') {
   instance.interceptors.response.use(...ResponseLogInterceptor)
 }
-// 鉴权拦截器
 instance.interceptors.response.use(...AuthInterceptor)
 instance.interceptors.response.use(...ErrorResponseInterceptor)
-
-// 注入token
 instance.interceptors.request.use(...TokenInjectRequestInterceptor)
 
 const Fetch = {

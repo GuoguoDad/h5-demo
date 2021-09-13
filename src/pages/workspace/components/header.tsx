@@ -6,6 +6,7 @@ import groupBy from 'lodash/groupBy'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
 import { AppDispatch, RootState } from '@store'
+import { bachSetState } from '../slice'
 import { tempData, getColor } from '../util'
 import './header.less'
 
@@ -13,7 +14,7 @@ const { Header } = Layout
 
 const WorkSpaceHeader = () => {
   const dispatch: AppDispatch = useDispatch()
-  const { menuKey, subMenuKey, collapsed } = useSelector((state: RootState) => state.workspace)
+  const { collapsed } = useSelector((state: RootState) => state.workspace)
 
   dayjs.extend(relativeTime)
   dayjs.locale('zh-cn')
@@ -65,7 +66,9 @@ const WorkSpaceHeader = () => {
 
   return (
     <Header className="notice-header">
-      <Icon className="trigger" type={collapsed ? 'menu-unfold' : 'menu-fold'} onClick={() => {}} />
+      <Icon className="trigger" type={collapsed ? 'menu-unfold' : 'menu-fold'} onClick={() => {
+        dispatch(bachSetState({ collapsed: collapsed ? false : true }))
+      }} />
       <div className="header-right">
         <NoticeIcon
           className="notice-action notice-icon"
