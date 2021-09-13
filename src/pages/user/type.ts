@@ -11,5 +11,6 @@ export interface UserState {
   loading: boolean,
   total: number,
   currentPage: number,
-  pageSize: number
+  pageSize: number,
+  showAddForm: boolean
 }

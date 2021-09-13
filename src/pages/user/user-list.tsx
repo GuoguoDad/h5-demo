@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react'
 import { useSetState } from 'ahooks'
-import { Table, Button, Pagination, Modal, Divider, Layout, Popconfirm } from 'antd'
+import { Table, Button, Pagination, Divider, Layout, Popconfirm } from 'antd'
 
 import { queryUserList } from './web-api'
 import { UserState } from './type'
+import styles from './user.module.less'
 
 const UserList = () => {
   const [state, setState] = useSetState<UserState>({
@@ -12,19 +13,27 @@ const UserList = () => {
     loading: true,
     total: 0,
     currentPage: 1,
-    pageSize: 10
+    pageSize: 10,
+    showAddForm: false
   })
 
-  useEffect(()=>{
+  useEffect(() => {
     queryList(state.currentPage)
   },[])
 
   return (
-    <Layout style={{ height: '100%', backgroundColor: 'white', overflowY: 'auto' }}>
-      <div style={{ margin: 10 }}>
-        <span style={{ marginLeft: 8, fontSize: 12 }}>
+    <Layout className={styles.container}>
+      <div className={styles.toolbar}>
+        <span className={styles.selectedText}>
             {state.selectedRowKeys.length > 0 ? `已选中 ${state.selectedRowKeys.length} 条数据` : ''}
         </span>
+        <Button
+          type="primary"
+          size="default"
+          onClick={() => {}}
+        >
+          新增
+        </Button>
       </div>
       <Table
         size="middle"
