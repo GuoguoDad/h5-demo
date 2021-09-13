@@ -106,6 +106,7 @@ const UserList = () => {
         placement="right"
         width={'80%'}
         closable={true}
+        destroyOnClose={true}
         onClose={()=> setState({showAddForm: false})}
         visible={state.showAddForm}
         getContainer={false}

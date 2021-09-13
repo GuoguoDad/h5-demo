@@ -88,7 +88,7 @@ module.exports = {
       cache: false,
       emitWarning: true,
       emitError: true,
-      files: ['src'],
+      files: ['src/**/*.ts', 'src/**/*.tsx'],
       formatter: require.resolve('eslint-friendly-formatter'),
       eslintPath: require.resolve('eslint'),
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
