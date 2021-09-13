@@ -6,9 +6,6 @@ module.exports = {
     "plugins": [
       "@babel/plugin-transform-runtime",
       "@babel/plugin-proposal-function-bind",
-      "@babel/plugin-syntax-dynamic-import",
-      ["import",
-        { "libraryName": "antd", "style": "css" }
-      ]
+      "@babel/plugin-syntax-dynamic-import"
     ]
 }
