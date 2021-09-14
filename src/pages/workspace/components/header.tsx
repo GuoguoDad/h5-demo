@@ -80,7 +80,6 @@ const WorkSpaceHeader = () => {
           }}
           onPopupVisibleChange={() => {}}
           onClear={() => {}}
-          popupAlign={{ offset: [20, -16] }}
         >
           <NoticeIcon.Tab
             list={noticeData['通知']}

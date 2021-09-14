@@ -26,11 +26,13 @@ module.exports = {
             options: {
               transpileOnly: true,
               getCustomTransformers: () => ({
-                before: [tsImportPluginFactory({
-                  libraryName: 'antd',
-                  libraryDirectory: 'lib',
-                  style: true
-                })]
+                before: [
+                  tsImportPluginFactory({
+                    libraryName: 'antd',
+                    libraryDirectory: 'lib',
+                    style: true
+                  })
+                ]
               }),
               compilerOptions: {
                 module: 'es2015'

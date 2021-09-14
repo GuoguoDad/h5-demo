@@ -3,7 +3,6 @@ import {Switch, Route, Redirect} from 'react-router-dom'
 import { Loadable } from '@kits'
 
 const UserList = Loadable(() => import('@pages/user/user-list'))
-const UserAdd = Loadable(() => import('@pages/user/user-add'))
 const ChartLine = Loadable(() => import('@pages/chart/chart-line'))
 
 const Routes = () => {
