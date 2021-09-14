@@ -11,7 +11,6 @@
     "@manaflair/redux-batch": "^1.0.0",
     "@reduxjs/toolkit": "^1.6.1",
     "ahooks": "^2.10.9",
-    "ant-design-pro": "^0.3.1",
     "antd": "^4.16.13",
     "axios": "^0.21.4",
     "classnames": "^2.3.1",

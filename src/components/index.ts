@@ -1,3 +1,4 @@
-import Image from './image'
+import Image from './Image'
+import NoticeIcon from './NoticeIcon/NoticeIcon'
 
-export { Image }
+export { Image, NoticeIcon }

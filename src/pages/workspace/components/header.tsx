@@ -1,16 +1,16 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Layout, Tag, Dropdown, Menu, Avatar } from 'antd'
-import { UserOutlined, MenuUnfoldOutlined, MenuFoldOutlined, } from '@ant-design/icons'
-import NoticeIcon from 'ant-design-pro/lib/NoticeIcon'
+import { UserOutlined, SettingOutlined, LogoutOutlined, MenuUnfoldOutlined, MenuFoldOutlined } from '@ant-design/icons'
 import groupBy from 'lodash/groupBy'
 import dayjs from 'dayjs'
 import relativeTime from 'dayjs/plugin/relativeTime'
+import { MenuInfo } from 'rc-menu/lib/interface'
 import { AppDispatch, RootState } from '@store'
+import { NoticeIcon } from '@comps'
 import { bachSetState } from '../slice'
 import { tempData, getColor } from '../util'
 import './header.less'
-
 
 const { Header } = Layout
 
@@ -46,23 +46,7 @@ const WorkSpaceHeader = () => {
     return groupBy(newNotices, 'type')
   }
 
-  const menu = (
-    <Menu className="menu" selectedKeys={[]} onClick={() => {}}>
-      <Menu.Item icon={<UserOutlined />}>
-        个人中心
-      </Menu.Item>
-      <Menu.Item icon={<UserOutlined />}>
-        设置
-      </Menu.Item>
-      <Menu.Divider />
-      <Menu.Item key="logout" icon={<UserOutlined />}>
-        退出登录
-      </Menu.Item>
-    </Menu>
-  )
-
   const noticeData = getNoticeData(tempData)
-
   return (
     <Header className="notice-header">
       {React.createElement(collapsed ? MenuUnfoldOutlined : MenuFoldOutlined, {
@@ -78,29 +62,50 @@ const WorkSpaceHeader = () => {
           onItemClick={(item: any, tabProps: any) => {
             console.log(item, tabProps)
           }}
+          loading={false}
+          clearText="清空"
+          viewMoreText="查看更多"
           onPopupVisibleChange={() => {}}
           onClear={() => {}}
         >
           <NoticeIcon.Tab
+            tabKey="notification"
             list={noticeData['通知']}
             title="通知"
             emptyText="你已查看所有通知"
-            emptyImage="https://gw.alipayobjects.com/zos/rmsportal/wAhyIChODzsoKIOBHcBk.svg"
+            showViewMore
           />
           <NoticeIcon.Tab
+            tabKey="message"
             list={noticeData['消息']}
             title="消息"
             emptyText="您已读完所有消息"
-            emptyImage="https://gw.alipayobjects.com/zos/rmsportal/sAuJeJzSKbUmHfBQRzmZ.svg"
+            showViewMore
           />
           <NoticeIcon.Tab
+            tabKey="event"
             list={noticeData['待办']}
             title="待办"
             emptyText="你已完成所有待办"
-            emptyImage="https://gw.alipayobjects.com/zos/rmsportal/HsIsxMZiWKrNUavQUXqx.svg"
+            showViewMore
           />
         </NoticeIcon>
-        <Dropdown overlay={menu}>
+        <Dropdown overlay={
+          <Menu className="menu" selectedKeys={[]} onClick={(info: MenuInfo) => {
+            console.log('======info:', info)
+          }}>
+            <Menu.Item key="center" icon={<UserOutlined />}>
+              个人中心
+            </Menu.Item>
+            <Menu.Item key="setting" icon={<SettingOutlined />}>
+              设置
+            </Menu.Item>
+            <Menu.Divider />
+            <Menu.Item key="logout" icon={<LogoutOutlined />}>
+              退出登录
+            </Menu.Item>
+          </Menu>
+        }>
           <span className="action account">
             <Avatar
               size="small"
