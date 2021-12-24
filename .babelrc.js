@@ -1,10 +1,12 @@
 module.exports = {
 　　"presets": [
-      "@babel/react",
-      "@babel/preset-env"
+      "@babel/preset-env",
+      "@babel/preset-react",
+      "@babel/preset-typescript"
     ],
     "plugins": [
       "@babel/plugin-proposal-function-bind",
-      "@babel/plugin-syntax-dynamic-import"
+      "@babel/plugin-syntax-dynamic-import",
+      ["import", { "libraryName": "antd", "libraryDirectory": "lib", "style": true}]
     ]
 }

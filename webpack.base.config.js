@@ -5,8 +5,11 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
-const tsImportPluginFactory = require('ts-import-plugin')
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
 const utils = require('./utils')
+
+const isEnvProduction = process.env.NODE_ENV === 'production'
+const isEnvDevelopment = process.env.NODE_ENV === 'development'
 
 module.exports = {
   output: {
@@ -17,32 +20,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(ts|tsx)$/,
-        exclude: /node_modules/,
-        use: [
-          'babel-loader',
-          {
-            loader: 'ts-loader',
-            options: {
-              transpileOnly: true,
-              getCustomTransformers: () => ({
-                before: [
-                  tsImportPluginFactory({
-                    libraryName: 'antd',
-                    libraryDirectory: 'lib',
-                    style: true
-                  })
-                ]
-              }),
-              compilerOptions: {
-                module: 'es2015'
-              }
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(js|jsx)$/,
+        test: /\.(js|jsx|ts|tsx)$/,
         exclude: /node_modules/,
         use: [{ loader: 'babel-loader', options: { cacheDirectory: true } }]
       },
@@ -85,7 +63,8 @@ module.exports = {
     },
   },
   plugins: [
-    new ESLintWebpackPlugin({
+    isEnvDevelopment && new ForkTsCheckerWebpackPlugin(),
+    isEnvDevelopment && new ESLintWebpackPlugin({
       context: utils.appPath,
       cache: false,
       emitWarning: true,
@@ -97,7 +76,7 @@ module.exports = {
       ignore: true,
       fix: true
     }),
-    new StylelintPlugin({
+    isEnvDevelopment && new StylelintPlugin({
       context: utils.appPath,
       emitWarning: true,
       emitError: true,
@@ -120,19 +99,33 @@ module.exports = {
       chunkFilename: utils.assetsPath('css/[name]-[contenthash:5].css'),
       ignoreOrder: true
     }),
-    new HtmlWebpackPlugin({
-      title: 'fe-app',
-      filename: 'index.html',
-      template: './public/index.ejs',
-      minify: {
-        removeComments: true,
-        collapseWhitespace: true,
-        removeAttributeQuotes: true
-      }
-    }),
+    new HtmlWebpackPlugin(
+      Object.assign(
+        {},
+        {
+          title: 'fe-web',
+          filename: 'index.html',
+          template: './public/index.ejs',
+        },
+        isEnvProduction ? {
+          minify: {
+            removeComments: true,
+            collapseWhitespace: true,
+            removeRedundantAttributes: true,
+            useShortDoctype: true,
+            removeEmptyAttributes: true,
+            removeStyleLinkTypeAttributes: true,
+            keepClosingSlash: true,
+            minifyJS: true,
+            minifyCSS: true,
+            minifyURLs: true
+          }
+        }: undefined
+      )
+    ),
     new ProgressBarPlugin({
       format: 'Build [:bar] :percent (:elapsed seconds)',
       clear: false
     })
-  ]
+  ].filter(Boolean)
 }
