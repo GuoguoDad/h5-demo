@@ -5,7 +5,7 @@ import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import './assets/style/index.less'
 import { store } from './store'
-import Routes from './routes'
+import App from './app'
 
 import Workspace from '@pages/workspace'
 
@@ -13,7 +13,7 @@ ReactDOM.render(
     <Provider store={store}>
       <HashRouter>
         <Workspace>
-          <Routes />
+          <App />
         </Workspace>
       </HashRouter>
     </Provider>

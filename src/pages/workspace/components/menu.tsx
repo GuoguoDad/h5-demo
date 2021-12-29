@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout, Menu } from 'antd'
 import { DesktopOutlined, UserOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
-import { useHistory, useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { RootState, AppDispatch } from '@store'
 import { bachSetState } from '../slice'
 
@@ -10,7 +10,7 @@ const { SubMenu } = Menu
 const { Sider } = Layout
 
 const LeftMenu = () => {
-  const history = useHistory()
+  const navigate = useNavigate()
   const location = useLocation()
 
   const dispatch: AppDispatch = useDispatch()
@@ -18,7 +18,7 @@ const LeftMenu = () => {
 
   const changeUrl = (url: string, name: string) => {
     if (location.pathname !== url) {
-      history.push(url)
+      navigate(url)
     }
     dispatch(bachSetState({ memuName: name }))
   }

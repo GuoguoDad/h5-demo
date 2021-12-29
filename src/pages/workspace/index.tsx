@@ -1,6 +1,4 @@
 import React, {PropsWithChildren} from 'react'
-import { RouteChildrenProps } from 'react-router'
-import { withRouter } from 'react-router-dom'
 import { Layout } from 'antd'
 
 const { Content } = Layout
@@ -23,6 +21,6 @@ const WorkSpace = (props: WorkSpaceProps) => {
   )
 }
 
-export default withRouter(WorkSpace)
+export default WorkSpace
 
-type WorkSpaceProps = RouteChildrenProps & PropsWithChildren<{}>
+type WorkSpaceProps = PropsWithChildren<{}>

@@ -6,7 +6,9 @@ import { ErrorResponseInterceptor } from './interceptors/error-response-intercep
 import { TokenInjectRequestInterceptor } from './interceptors/token-interceptor'
 
 const instance = axios.create()
+// @ts-ignore
 instance.defaults.headers['Content-Type'] = 'application/json'
+// @ts-ignore
 instance.defaults.headers.Accept = 'application/json'
 
 if (process.env.NODE_ENV === 'development') {
