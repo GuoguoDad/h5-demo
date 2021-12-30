@@ -10,7 +10,7 @@ module.exports = merge(baseWebpackConfig, {
   devServer: {
     port: 8080,
     host: '0.0.0.0',
-    open: 'http://127.0.0.1:8080/#/',
+    open: 'http://127.0.0.1:8080/#/user/list',
     proxy: {
       '/login-api': {
         secure: false,
