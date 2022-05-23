@@ -11,9 +11,9 @@ module.exports = merge(baseWebpackConfig, {
   entry: {
     app: './src/index.tsx'
   },
-  devtool: false,
+  devtool: 'source-map',
   plugins: [
-    new BundleAnalyzerPlugin()
+    // new BundleAnalyzerPlugin()
   ],
   optimization: {
     splitChunks: {

@@ -3,10 +3,9 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { HashRouter } from 'react-router-dom'
 import { Provider } from 'react-redux'
-import './assets/style/index.less'
-import { store } from './store'
+import { store } from '@store'
 import App from './app'
-
+import './assets/style/index.less'
 import Workspace from '@pages/workspace'
 
 ReactDOM.render(
