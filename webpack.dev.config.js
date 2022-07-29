@@ -1,11 +1,20 @@
 const { merge } = require('webpack-merge')
 const baseWebpackConfig = require('./webpack.base.config')
+const WebpackPluginMock = require('webpack-plugin-mock')
 
 module.exports = merge(baseWebpackConfig, {
   mode: 'development',
   entry: {
     app: './src/index.tsx'
   },
+  plugins: [
+    new WebpackPluginMock({
+      apiBasePath: './mock',
+      watch: true,
+      pretty: true,
+      port: 8090
+    }),
+  ],
   devtool: 'cheap-module-source-map',
   devServer: {
     port: 8080,
