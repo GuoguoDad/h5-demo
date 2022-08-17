@@ -3,9 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const CopyWebpackPlugin = require('copy-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const ProgressBarPlugin = require('progress-bar-webpack-plugin')
-const ESLintWebpackPlugin = require('eslint-webpack-plugin')
-const StylelintPlugin = require('stylelint-webpack-plugin')
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
+
 const utils = require('./utils')
 
 const isEnvProduction = process.env.NODE_ENV === 'production'
@@ -63,29 +61,6 @@ module.exports = {
     },
   },
   plugins: [
-    isEnvDevelopment && new ForkTsCheckerWebpackPlugin(),
-    isEnvDevelopment && new ESLintWebpackPlugin({
-      context: utils.appPath,
-      cache: false,
-      emitWarning: true,
-      emitError: true,
-      files: ['src/**/*.ts', 'src/**/*.tsx'],
-      formatter: require.resolve('eslint-friendly-formatter'),
-      eslintPath: require.resolve('eslint'),
-      extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
-      ignore: true,
-      fix: true
-    }),
-    isEnvDevelopment && new StylelintPlugin({
-      context: utils.appPath,
-      emitWarning: true,
-      emitError: true,
-      files: ['src/**/*.css', 'src/**/*.less'],
-      stylelintPath: require.resolve('stylelint'),
-      ignore: true,
-      fix: true,
-      useEslintrc: true
-    }),
     // new CopyWebpackPlugin({
     //   patterns: [
     //     {
@@ -127,5 +102,5 @@ module.exports = {
       format: 'Build [:bar] :percent (:elapsed seconds)',
       clear: false
     })
-  ].filter(Boolean)
+  ]
 }
