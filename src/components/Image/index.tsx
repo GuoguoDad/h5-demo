@@ -7,7 +7,7 @@ const Index = (props: IndexProps) => {
   const { className, lazy = false, onClick = () => {} } = props
 
   let imgRef = undefined
-  let inViewPort: boolean | undefined = true
+  let inViewPort: any
   if (lazy) {
     imgRef = useRef<HTMLImageElement>(null)
     inViewPort = useInViewport(imgRef)
@@ -23,7 +23,7 @@ const Index = (props: IndexProps) => {
       onClick={() => onClick()}
       onError={() => setUrl(defaultImg)}
       className={className}
-      src={inViewPort ? url : defaultImg}
+      src={inViewPort[0] ? url : defaultImg}
     />
   )
 }

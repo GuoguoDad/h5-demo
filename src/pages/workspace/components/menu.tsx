@@ -47,6 +47,9 @@ const LeftMenu = () => {
           <Menu.Item key="userlist">
             <a onClick={() => changeUrl('/user/list', '用户管理')}>用户管理</a>
           </Menu.Item>
+          <Menu.Item key="counter">
+            <a onClick={() => changeUrl('/counter', 'counter')}>counter</a>
+          </Menu.Item>
         </SubMenu>
         <SubMenu
           key="chart"

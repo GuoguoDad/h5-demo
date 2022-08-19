@@ -9,11 +9,16 @@ const ChartLine = loadable(
   () => import('@pages/chart/chart-line' /* webpackChunkName: 'ChartLine', webpackPrefetch: true */)
 )
 
+const CounterDemo = loadable(
+  () => import('@pages/counter/Counter' /* webpackChunkName: 'Counter', webpackPrefetch: true */)
+)
+
 const App = () => {
   return (
     <Routes>
       <Route key={'user-list'} path="/user/list" element={<UserList />} />
       <Route key={'chart-line'} path="/chart/line" element={<ChartLine />} />
+      <Route key={'counter-demo'} path="/counter" element={<CounterDemo />} />
     </Routes>
   )
 }
