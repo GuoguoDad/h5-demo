@@ -13,12 +13,15 @@ const CounterDemo = loadable(
   () => import('@pages/counter/Counter' /* webpackChunkName: 'Counter', webpackPrefetch: true */)
 )
 
+const TabNavbar = loadable(() => import('@pages/tab-navbar' /* webpackChunkName: 'TabNavbar', webpackPrefetch: true */))
+
 const App = () => {
   return (
     <Routes>
       <Route key={'user-list'} path="/user/list" element={<UserList />} />
       <Route key={'chart-line'} path="/chart/line" element={<ChartLine />} />
       <Route key={'counter-demo'} path="/counter" element={<CounterDemo />} />
+      <Route key={'tab-navbar'} path="/tab/navbar" element={<TabNavbar />} />
     </Routes>
   )
 }

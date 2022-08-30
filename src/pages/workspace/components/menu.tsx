@@ -50,6 +50,9 @@ const LeftMenu = () => {
           <Menu.Item key="counter">
             <a onClick={() => changeUrl('/counter', 'counter')}>counter</a>
           </Menu.Item>
+          <Menu.Item key="navbar">
+            <a onClick={() => changeUrl('/tab/navbar', 'navbar')}>TabNavBar</a>
+          </Menu.Item>
         </SubMenu>
         <SubMenu
           key="chart"

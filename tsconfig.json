@@ -9,7 +9,7 @@
     ],
     "allowJs": true,
     "noEmit": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "rootDir": "src",
     "skipLibCheck": true,
     "esModuleInterop": true,

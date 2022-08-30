@@ -4,7 +4,7 @@ import { WorkSpaceState } from './type'
 const initialState: WorkSpaceState = {
   menuName: '用户管理',
   subMenuKey: 'user',
-  menuKey: 'userlist',
+  menuKey: 'navbar',
   collapsed: false
 }
 
