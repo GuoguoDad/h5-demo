@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { RootState, AppDispatch } from '@store'
 import { bachSetState } from '../slice'
+import { setDefault } from '@pages/workspace/util'
 
 const { SubMenu } = Menu
 const { Sider } = Layout
@@ -20,56 +21,61 @@ const LeftMenu = () => {
     if (location.pathname !== url) {
       navigate(url)
     }
-    dispatch(bachSetState({ memuName: name }))
+    setDefault(name)
+    dispatch(bachSetState({ memuName: name, menuKey: name }))
   }
 
   return (
     <Sider className="layout-sider" trigger={null} collapsible width={256} collapsed={collapsed}>
-      <div className="common-logo">
-        <h1></h1>
-      </div>
       <Menu
-        theme="dark"
+        theme="light"
         mode="inline"
         defaultSelectedKeys={[menuKey]}
         defaultOpenKeys={[subMenuKey]}
         style={{ height: 'calc(100% - 64)', borderRight: 0, padding: '16px 0' }}
       >
         <SubMenu
-          key="user"
-          icon={<UserOutlined />}
+          key="css"
           title={
             <span>
-              <span>系统管理</span>
+              <span>学习CSS</span>
             </span>
           }
         >
-          <Menu.Item key="userlist">
-            <a onClick={() => changeUrl('/user/list', '用户管理')}>用户管理</a>
-          </Menu.Item>
-          <Menu.Item key="counter">
-            <a onClick={() => changeUrl('/counter', 'counter')}>counter</a>
+          <Menu.Item key="nth">
+            <a onClick={() => changeUrl('/sandbox/nth-child', 'nth')}>使用:nth-child()选择指定元素</a>
           </Menu.Item>
           <Menu.Item key="navbar">
-            <a onClick={() => changeUrl('/tab/navbar', 'navbar')}>TabNavBar</a>
+            <a onClick={() => changeUrl('/sandbox/navbar1', 'navbar')}>纯CSS实现Tab切换(静态)</a>
+          </Menu.Item>
+          <Menu.Item key="navbar2">
+            <a onClick={() => changeUrl('/sandbox/navbar2', 'navbar2')}>纯CSS实现Tab切换(动态)</a>
+          </Menu.Item>
+          <Menu.Item key="cardSlider">
+            <a onClick={() => changeUrl('/sandbox/card/slider', 'cardSlider')}>手动实现滑动卡片</a>
+          </Menu.Item>
+          <Menu.Item key="transform1">
+            <a onClick={() => changeUrl('/sandbox/transform1', 'transform1')}>使用transform描绘像素边框</a>
+          </Menu.Item>
+          <Menu.Item key="scrollIndicator">
+            <a onClick={() => changeUrl('/sandbox/scroll/indicator', 'scrollIndicator')}>滚动指示器</a>
           </Menu.Item>
         </SubMenu>
-        <SubMenu
-          key="chart"
-          icon={<DesktopOutlined />}
-          title={
-            <span>
-              <span>图表</span>
-            </span>
-          }
-        >
-          <Menu.Item key="chartline">
-            <a onClick={() => changeUrl('/chart/line', '折线图')}>折线图</a>
-          </Menu.Item>
-          <Menu.Item key="chartpie">
-            <a onClick={() => changeUrl('/chart/pie', '饼图')}>饼图</a>
-          </Menu.Item>
-        </SubMenu>
+        {/*<SubMenu*/}
+        {/*  key="user"*/}
+        {/*  title={*/}
+        {/*    <span>*/}
+        {/*      <span>Demo</span>*/}
+        {/*    </span>*/}
+        {/*  }*/}
+        {/*>*/}
+        {/*  <Menu.Item key="counter">*/}
+        {/*    <a onClick={() => changeUrl('/counter', 'counter')}>counter</a>*/}
+        {/*  </Menu.Item>*/}
+        {/*  <Menu.Item key="userlist">*/}
+        {/*    <a onClick={() => changeUrl('/user/list', '用户管理')}>用户管理</a>*/}
+        {/*  </Menu.Item>*/}
+        {/*</SubMenu>*/}
       </Menu>
     </Sider>
   )

@@ -108,3 +108,13 @@ export const getColor = (status: any) => {
   }
   return color
 }
+
+const menuSelectKey = 'LeftMenuDefault'
+
+export const setDefault = (key: string) => {
+  sessionStorage.setItem(menuSelectKey, key)
+}
+
+export const getDefault = () => {
+  return sessionStorage.getItem(menuSelectKey)?.toString() || 'navbar'
+}

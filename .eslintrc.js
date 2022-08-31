@@ -77,6 +77,7 @@ module.exports = {
     "import/no-dynamic-require": "off",
     "react/display-name": "off",
     "react/prop-types": "off",
+    "react/no-deprecated": "off",
 
     // typeScript (https://typescript-eslint.io/rules)
     "@typescript-eslint/no-unused-vars": "off", // 禁止定义未使用的变量
@@ -96,5 +97,6 @@ module.exports = {
     // react (https://github.com/jsx-eslint/eslint-plugin-react)
     "react-hooks/rules-of-hooks": "off",
     "react-hooks/exhaustive-deps": "off"
+
   }
 }

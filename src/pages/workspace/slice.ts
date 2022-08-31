@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { WorkSpaceState } from './type'
+import { getDefault } from '@pages/workspace/util'
 
 const initialState: WorkSpaceState = {
-  menuName: '用户管理',
-  subMenuKey: 'user',
-  menuKey: 'navbar',
+  menuName: '纯CSS',
+  subMenuKey: 'css',
+  menuKey: getDefault(),
   collapsed: false
 }
 

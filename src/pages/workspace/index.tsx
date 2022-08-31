@@ -11,8 +11,8 @@ const WorkSpace = (props: WorkSpaceProps) => {
   return (
     <Layout className={styles.container}>
       <LeftMenu />
-      <Layout>
-        <Header />
+      <Layout className={styles.rightContainer}>
+        {/*<Header />*/}
         <Content className={styles.content}>{props.children}</Content>
       </Layout>
     </Layout>

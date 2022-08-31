@@ -118,12 +118,11 @@ const WorkSpaceHeader = () => {
               className={'avatar'}
               src={'https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png'}
             />
-            {'199******06'}
+            {'GuoguoDad'}
           </span>
         </Dropdown>
       </div>
     </Header>
   )
 }
-
 export default WorkSpaceHeader

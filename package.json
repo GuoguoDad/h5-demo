@@ -13,6 +13,7 @@
     "server": "serve ./dist -p 52232"
   },
   "dependencies": {
+    "@codesandbox/sandpack-react": "^1.5.5",
     "@loadable/component": "^5.15.2",
     "@manaflair/redux-batch": "^1.0.0",
     "@reduxjs/toolkit": "^1.6.2",
