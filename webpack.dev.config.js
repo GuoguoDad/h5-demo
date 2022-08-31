@@ -3,7 +3,6 @@ const baseWebpackConfig = require('./webpack.base.config')
 const ESLintWebpackPlugin = require('eslint-webpack-plugin')
 const StylelintPlugin = require('stylelint-webpack-plugin')
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin')
-const WebpackPluginMock = require('webpack-plugin-mock')
 const utils = require('./utils')
 
 module.exports = merge(baseWebpackConfig, {
@@ -34,13 +33,7 @@ module.exports = merge(baseWebpackConfig, {
       ignore: true,
       fix: true,
       useEslintrc: true
-    }),
-    new WebpackPluginMock({
-      apiBasePath: './mock',
-      watch: true,
-      pretty: true,
-      port: 8090
-    }),
+    })
   ],
   devtool: 'cheap-module-source-map',
   devServer: {

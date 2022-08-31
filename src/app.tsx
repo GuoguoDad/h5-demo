@@ -2,18 +2,22 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import loadable from '@loadable/component'
 
-const UserList = loadable(
-  () => import('@pages/user/user-list' /* webpackChunkName: 'UserList', webpackPrefetch: true */)
-)
-const ChartLine = loadable(
-  () => import('@pages/chart/chart-line' /* webpackChunkName: 'ChartLine', webpackPrefetch: true */)
-)
 const CounterDemo = loadable(
   () => import('@pages/counter/Counter' /* webpackChunkName: 'Counter', webpackPrefetch: true */)
 )
 const TabNavbar = loadable(() => import('@pages/tab-navbar' /* webpackChunkName: 'TabNavbar', webpackPrefetch: true */))
 const CardSlider = loadable(
   () => import('@pages/card-slider' /* webpackChunkName: 'CardSlider', webpackPrefetch: true */)
+)
+const StripLoading = loadable(
+  () => import('@pages/strip-loading' /* webpackChunkName: 'StripLoading', webpackPrefetch: true */)
+)
+const HeartShape = loadable(
+  () => import('@pages/heart-shape' /* webpackChunkName: 'HeartShape', webpackPrefetch: true */)
+)
+
+const TextOverflow = loadable(
+  () => import('@pages/sandpack/text-overflow' /* webpackChunkName: 'TextOverflow', webpackPrefetch: true */)
 )
 
 const NthChild = loadable(
@@ -34,16 +38,25 @@ const Transform1 = loadable(
 const ScrollIndicator = loadable(
   () => import('@pages/sandpack/scroll-indicator' /* webpackChunkName: 'ScrollIndicator', webpackPrefetch: true */)
 )
+const Animation1 = loadable(
+  () => import('@pages/sandpack/animation-1' /* webpackChunkName: 'Animation1', webpackPrefetch: true */)
+)
+const Transform2 = loadable(
+  () => import('@pages/sandpack/transform2' /* webpackChunkName: 'transform2', webpackPrefetch: true */)
+)
 
 const App = () => {
   return (
     <Routes>
-      <Route key={'user-list'} path="/user/list" element={<UserList />} />
-      <Route key={'chart-line'} path="/chart/line" element={<ChartLine />} />
       <Route key={'counter-demo'} path="/counter" element={<CounterDemo />} />
       <Route key={'tab-navbar'} path="/tab/navbar" element={<TabNavbar />} />
       <Route key={'card-slider'} path="/card/slider" element={<CardSlider />} />
-      {/*使用:nth-child()选择指定元素*/}
+      <Route key={'strip-loading'} path="/strip/loading" element={<StripLoading />} />
+      <Route key={'heart-shape'} path="/heart/shape" element={<HeartShape />} />
+
+      {/*用text-overflow控制溢出文本*/}
+      <Route key={'TextOverflow'} path="/sandbox/text-overflow" element={<TextOverflow />} />
+      {/*用:nth-child()选择指定元素*/}
       <Route key={'NthChild'} path="/sandbox/nth-child" element={<NthChild />} />
       {/*纯CSS实现Tab切换(静态)*/}
       <Route key={'tab-navbar1'} path="/sandbox/navbar1" element={<TabNav1 />} />
@@ -53,8 +66,12 @@ const App = () => {
       <Route key={'card-slider1'} path="/sandbox/card/slider" element={<SandCardSlider />} />
       {/*使用transform描绘像素边框*/}
       <Route key={'transform1'} path="/sandbox/transform1" element={<Transform1 />} />
-      {/*滚动指示器*/}
+      {/*使用transform画爱心*/}
+      <Route key={'transform2'} path="/sandbox/transform2" element={<Transform2 />} />
+      {/*页面滚动指示器*/}
       <Route key={'ScrollIndicator'} path="/sandbox/scroll/indicator" element={<ScrollIndicator />} />
+      {/*使用animation实现加载动画*/}
+      <Route key={'Animation1'} path="/sandbox/animation1" element={<Animation1 />} />
     </Routes>
   )
 }
