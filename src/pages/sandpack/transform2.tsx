@@ -2,7 +2,7 @@ import { Sandpack } from '@codesandbox/sandpack-react'
 import './index.scss'
 
 const scssCode = `
-.heart-shape {
+.heart {
   position: relative;
   width: 400px;
   height: 400px;
@@ -35,7 +35,7 @@ const code = `
 import './App.scss'
 
 export default function App() {
-  return <div className="heart-shape"></div>
+  return <div className="heart"></div>
 }`
 
 const Transform2 = () => {
