@@ -2,6 +2,9 @@ import React from 'react'
 import { Routes, Route } from 'react-router-dom'
 import loadable from '@loadable/component'
 
+const BeautyRadio = loadable(
+  () => import('@pages/beauty-radio' /* webpackChunkName: 'BeautyRadio', webpackPrefetch: true */)
+)
 const CounterDemo = loadable(
   () => import('@pages/counter/Counter' /* webpackChunkName: 'Counter', webpackPrefetch: true */)
 )
@@ -44,10 +47,14 @@ const Animation1 = loadable(
 const Transform2 = loadable(
   () => import('@pages/sandpack/transform2' /* webpackChunkName: 'transform2', webpackPrefetch: true */)
 )
+const BeautyRadioSp = loadable(
+  () => import('@pages/sandpack/beauty-radio' /* webpackChunkName: 'BeautyRadioSp', webpackPrefetch: true */)
+)
 
 const App = () => {
   return (
     <Routes>
+      <Route key={'beauty-radio'} path="/beauty/radio" element={<BeautyRadio />} />
       <Route key={'counter-demo'} path="/counter" element={<CounterDemo />} />
       <Route key={'tab-navbar'} path="/tab/navbar" element={<TabNavbar />} />
       <Route key={'card-slider'} path="/card/slider" element={<CardSlider />} />
@@ -58,6 +65,8 @@ const App = () => {
       <Route key={'TextOverflow'} path="/sandbox/text-overflow" element={<TextOverflow />} />
       {/*用:nth-child()选择指定元素*/}
       <Route key={'NthChild'} path="/sandbox/nth-child" element={<NthChild />} />
+      {/*美化单选按钮组*/}
+      <Route key={'BeautyRadioSp'} path="/sandbox/beauty/radio" element={<BeautyRadioSp />} />
       {/*纯CSS实现Tab切换(静态)*/}
       <Route key={'tab-navbar1'} path="/sandbox/navbar1" element={<TabNav1 />} />
       {/*纯CSS实现Tab切换(动态)*/}

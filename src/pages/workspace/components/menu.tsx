@@ -38,7 +38,7 @@ const LeftMenu = () => {
           key="css"
           title={
             <span>
-              <span>学习CSS</span>
+              <span>CSS Demo</span>
             </span>
           }
         >
@@ -48,26 +48,29 @@ const LeftMenu = () => {
           <Menu.Item key="overflow">
             <a onClick={() => changeUrl('/sandbox/text-overflow', 'overflow')}>2、用text-overflow控制溢出文本</a>
           </Menu.Item>
+          <Menu.Item key="beautyRadio">
+            <a onClick={() => changeUrl('/sandbox/beauty/radio', 'beautyRadio')}>3、美化单选按钮组</a>
+          </Menu.Item>
           <Menu.Item key="navbar">
-            <a onClick={() => changeUrl('/sandbox/navbar1', 'navbar')}>3、纯CSS实现Tab切换(静态)</a>
+            <a onClick={() => changeUrl('/sandbox/navbar1', 'navbar')}>4、纯CSS实现Tab切换(静态)</a>
           </Menu.Item>
           <Menu.Item key="navbar2">
-            <a onClick={() => changeUrl('/sandbox/navbar2', 'navbar2')}>4、纯CSS实现Tab切换(动态)</a>
+            <a onClick={() => changeUrl('/sandbox/navbar2', 'navbar2')}>5、纯CSS实现Tab切换(动态)</a>
           </Menu.Item>
           <Menu.Item key="cardSlider">
-            <a onClick={() => changeUrl('/sandbox/card/slider', 'cardSlider')}>5、手动实现滑动卡片</a>
+            <a onClick={() => changeUrl('/sandbox/card/slider', 'cardSlider')}>6、手动实现滑动卡片</a>
           </Menu.Item>
           <Menu.Item key="transform1">
-            <a onClick={() => changeUrl('/sandbox/transform1', 'transform1')}>6、用transform描绘像素边框</a>
+            <a onClick={() => changeUrl('/sandbox/transform1', 'transform1')}>7、用transform描绘像素边框</a>
           </Menu.Item>
           <Menu.Item key="transform2">
-            <a onClick={() => changeUrl('/sandbox/transform2', 'transform2')}>7、用transform绘画爱心</a>
+            <a onClick={() => changeUrl('/sandbox/transform2', 'transform2')}>8、用transform绘画爱心</a>
           </Menu.Item>
           <Menu.Item key="scrollIndicator">
-            <a onClick={() => changeUrl('/sandbox/scroll/indicator', 'scrollIndicator')}>8、页面滚动指示器</a>
+            <a onClick={() => changeUrl('/sandbox/scroll/indicator', 'scrollIndicator')}>9、页面滚动指示器</a>
           </Menu.Item>
           <Menu.Item key="animation1">
-            <a onClick={() => changeUrl('/sandbox/animation1', 'animation1')}>9、用animation实现加载动画</a>
+            <a onClick={() => changeUrl('/sandbox/animation1', 'animation1')}>10、用animation实现加载动画</a>
           </Menu.Item>
         </SubMenu>
       </Menu>
