@@ -72,6 +72,9 @@ const LeftMenu = () => {
           <Menu.Item key="animation1">
             <a onClick={() => changeUrl('/sandbox/animation1', 'animation1')}>10、用animation实现加载动画</a>
           </Menu.Item>
+          <Menu.Item key="starRating">
+            <a onClick={() => changeUrl('/sandbox/star/rating', 'starRating')}>11、用伪元素实现五星评分</a>
+          </Menu.Item>
         </SubMenu>
       </Menu>
     </Sider>

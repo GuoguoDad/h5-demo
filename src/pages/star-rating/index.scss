@@ -1,0 +1,29 @@
+.star-rating-container {
+  display: flex;
+  flex-direction: row-reverse;
+  width: 250px;
+  margin: 10% auto auto;
+  & input {
+    width: 30px;
+    height: 30px;
+    font-size: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    transition: all 300ms;
+    appearance: none;
+    &+input {
+      margin-right: 4px;
+    }
+    &::after {
+      color: #80807f;
+      content: "☆";
+      transition: all 300ms;
+    }
+    &:checked {
+      &::after,& ~ ::after {
+        color: #e64d2e;
+        content: "★";
+      }
+    }
+  }
+}

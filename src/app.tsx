@@ -18,11 +18,13 @@ const StripLoading = loadable(
 const HeartShape = loadable(
   () => import('@pages/heart-shape' /* webpackChunkName: 'HeartShape', webpackPrefetch: true */)
 )
+const StarRating = loadable(
+  () => import('@pages/star-rating' /* webpackChunkName: 'StarRating', webpackPrefetch: true */)
+)
 
 const TextOverflow = loadable(
   () => import('@pages/sandpack/text-overflow' /* webpackChunkName: 'TextOverflow', webpackPrefetch: true */)
 )
-
 const NthChild = loadable(
   () => import('@pages/sandpack/nth-child' /* webpackChunkName: 'NthChild', webpackPrefetch: true */)
 )
@@ -50,6 +52,9 @@ const Transform2 = loadable(
 const BeautyRadioSp = loadable(
   () => import('@pages/sandpack/beauty-radio' /* webpackChunkName: 'BeautyRadioSp', webpackPrefetch: true */)
 )
+const StarRatingSp = loadable(
+  () => import('@pages/sandpack/star-rating' /* webpackChunkName: 'StarRatingSp', webpackPrefetch: true */)
+)
 
 const App = () => {
   return (
@@ -60,6 +65,7 @@ const App = () => {
       <Route key={'card-slider'} path="/card/slider" element={<CardSlider />} />
       <Route key={'strip-loading'} path="/strip/loading" element={<StripLoading />} />
       <Route key={'heart-shape'} path="/heart/shape" element={<HeartShape />} />
+      <Route key={'star-rating'} path="/star/rating" element={<StarRating />} />
 
       {/*用text-overflow控制溢出文本*/}
       <Route key={'TextOverflow'} path="/sandbox/text-overflow" element={<TextOverflow />} />
@@ -81,6 +87,8 @@ const App = () => {
       <Route key={'ScrollIndicator'} path="/sandbox/scroll/indicator" element={<ScrollIndicator />} />
       {/*使用animation实现加载动画*/}
       <Route key={'Animation1'} path="/sandbox/animation1" element={<Animation1 />} />
+      {/*伪元素实现五星评分*/}
+      <Route key={'StarRatingSp'} path="/sandbox/star/rating" element={<StarRatingSp />} />
     </Routes>
   )
 }
