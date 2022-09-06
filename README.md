@@ -1,5 +1,4 @@
-# online-demo
-## CSS
+# CSS
 - 1、用:nth-child()选择指定元素
 - 2、用text-overflow控制溢出文本
 - 3、美化单选按钮组
@@ -7,7 +6,7 @@
 - 5、纯CSS实现Tab切换(动态)
 - 6、手动实现滑动卡片
 - 7、用transform描绘像素边框
-- 8、用transform绘画爱心
+- [8、用transform绘画爱心](https://codepen.io/GuoguoDad/pen/YzLzpKb)
 - 9、页面滚动指示器
 - 10、用animation实现加载动画
-- 11、[纯CSS绘制五星红旗](https://codepen.io/GuoguoDad/pen/poVvrvM)
+- [11、纯CSS绘制五星红旗](https://codepen.io/GuoguoDad/pen/poVvrvM)
