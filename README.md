@@ -10,3 +10,4 @@
 - 9、页面滚动指示器
 - 10、用animation实现加载动画
 - [11、纯CSS绘制五星红旗](https://codepen.io/GuoguoDad/pen/poVvrvM)
+- [12、纯CSS实现Rain效果](https://codepen.io/GuoguoDad/pen/RwyPjzV)
