@@ -12,3 +12,6 @@
 - [11、纯CSS绘制五星红旗](https://codepen.io/GuoguoDad/pen/poVvrvM)
 - [12、纯CSS实现Rain效果](https://codepen.io/GuoguoDad/pen/RwyPjzV)
 - 13、纯CSS实现五星好评
+- [14、多按钮自适应](https://codepen.io/GuoguoDad/pen/VwxPveP)
+- [15、彩虹背景 🌈](https://codepen.io/GuoguoDad/pen/gOzgQGo)
+- [16、五星红旗 🇨🇳](https://codepen.io/GuoguoDad/pen/poVvrvM)
