@@ -5,13 +5,13 @@
 - 4、纯CSS实现Tab切换(静态)
 - 5、纯CSS实现Tab切换(动态)
 - 6、手动实现滑动卡片
-- 7、用transform描绘像素边框
+- [7、用transform描绘像素边框](https://codepen.io/GuoguoDad/pen/PoejNpv)
 - [8、用transform绘画爱心](https://codepen.io/GuoguoDad/pen/YzLzpKb)
 - 9、页面滚动指示器
-- 10、用animation实现加载动画
+- [10、用animation实现加载动画](https://codepen.io/GuoguoDad/pen/PoeozMx)
 - [11、纯CSS绘制五星红旗](https://codepen.io/GuoguoDad/pen/poVvrvM)
 - [12、纯CSS实现Rain效果](https://codepen.io/GuoguoDad/pen/RwyPjzV)
-- 13、纯CSS实现五星好评
+- [13、纯CSS实现五星好评](https://codepen.io/GuoguoDad/pen/MWGoyKy)
 - [14、多按钮自适应](https://codepen.io/GuoguoDad/pen/VwxPveP)
 - [15、彩虹背景 🌈](https://codepen.io/GuoguoDad/pen/gOzgQGo)
 - [16、五星红旗 🇨🇳](https://codepen.io/GuoguoDad/pen/poVvrvM)
